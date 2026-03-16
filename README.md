@@ -177,3 +177,136 @@ This project is licensed under the MIT License.
 - [ ] Create interactive visualizations
 - [ ] Add model explainability tools
 - [ ] Implement ensemble methods
+
+# Проект прогнозирования временных рядов
+
+**ВНИМАНИЕ:** Этот проект создан автоматически для демонстрации возможностей прогнозирования.
+
+## 📁 Что это
+
+Проект для прогнозирования погодных данных с использованием нейронных сетей.
+
+### Две ветки:
+
+1. **main** - TensorFlow модели (простые и надежные)
+2. **jax-vae** - JAX VAE модели (для экспериментов)
+
+## 🚀 Быстрый старт
+
+### Шаг 1: Установка
+```bash
+# Клонируйте проект
+git clone https://github.com/MaxGoodnic/time-series-forecasting.git
+cd time-series-forecasting
+
+# Создайте виртуальное окружение
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Установите зависимости
+pip install -r requirements.txt
+```
+
+### Шаг 2: Запуск TensorFlow моделей
+```bash
+python main.py
+```
+
+### Шаг 3: Запуск JAX VAE моделей
+```bash
+git checkout jax-vae
+python examples/jax_vae_example.py
+```
+
+## 📂 Структура проекта
+
+```
+time_series_forecasting/
+├── main.py                 # Основной скрипт TensorFlow
+├── src/
+│   ├── data/              # Загрузка данных
+│   ├── models/            # Модели (LSTM, VAE)
+│   └── utils/             # Утилиты обучения
+├── examples/             # Примеры использования
+└── README.md            # Этот файл
+```
+
+## 🎯 Что можно делать
+
+### Ветка main (TensorFlow):
+- Прогнозирование на 1 шаг вперед
+- Прогнозирование на 24 часа вперед
+- Сравнение разных моделей
+- Визуализация результатов
+
+### Ветка jax-vae (JAX):
+- Обучение VAE на временных рядах
+- Восстановление данных
+- Интерполяция в латентном пространстве
+- Генерация новых последовательностей
+
+## 📊 Результаты
+
+### TensorFlow модели:
+- Baseline MAE: ~0.29
+- LSTM MAE: ~0.24
+
+### JAX VAE:
+- Восстановление с ошибкой ~0.15
+- Интерполяция между последовательностями
+
+## ⚙️ Настройка
+
+### Изменить параметры обучения:
+```python
+# В main.py
+epochs = 50
+batch_size = 64
+learning_rate = 0.001
+```
+
+### Использовать свои данные:
+```python
+# Замените загрузчик данных
+data_path = "path/to/your/data.csv"
+```
+
+## 🔧 Команды
+
+### TensorFlow:
+```bash
+python main.py --single-only      # Только одинарные прогнозы
+python main.py --multi-only       # Только множественные прогнозы
+python main.py --results-dir my_results  # Сохранить результаты
+```
+
+### JAX:
+```bash
+python examples/jax_vae_example.py
+```
+
+## 📝 Документация
+
+- Полная документация в коде (docstrings)
+- Примеры в папке `examples/`
+- Инструкции в `SETUP_INSTRUCTIONS.md`
+
+## ⚠️ Важные замечания
+
+1. **Требования:** Python 3.8+, TensorFlow 2.13+
+2. **Данные:** Автоматически скачиваются при первом запуске
+3. **Память:** Для больших моделей нужно 8GB+ RAM
+4. **JAX:** Требует CUDA для GPU ускорения
+
+## 🆘 Поддержка
+
+Если что-то не работает:
+1. Проверьте версию Python: `python --version`
+2. Обновите pip: `pip install --upgrade pip`
+3. Пересоздайте окружение: `rm -rf venv && python -m venv venv`
+
+---
+
+**Автор:** Сгенерировано автоматически  
+**Назначение:** Образовательный проект  
+**Статус:** Готов к использованию
